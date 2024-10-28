@@ -33,8 +33,8 @@ class HomeViewController: UIViewController {
         homeFeedTable.dataSource = self
         
         
-        // Home gorunusu ayarlama (Yukari Header ekleme)
-        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        homeFeedTable.tableHeaderView = headerView
     }
     
     // Görünüm alt görünümleri düzenlendiğinde çağrılan metod
