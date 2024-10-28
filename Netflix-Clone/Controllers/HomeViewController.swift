@@ -31,6 +31,10 @@ class HomeViewController: UIViewController {
         // UITableView delegate ve data source olarak kendisini ayarla
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        
+        // Home gorunusu ayarlama (Yukari Header ekleme)
+        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
     // Görünüm alt görünümleri düzenlendiğinde çağrılan metod
