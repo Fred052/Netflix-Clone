@@ -12,7 +12,7 @@
         
         
         // Her bölüm için başlıkları içeren dizi
-        let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
+        let sectionTitles: [String] = ["Trending Movies", "Trending TV", "Popular", "Upcoming Movies", "Top Rated"]
 
         
         // Ana ekran içeriğini gösterecek UITableView nesnesi
@@ -43,6 +43,8 @@
             // HeroHeaderUIView ekleyerek tableView için başlık görünümü ayarlama
             let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
             homeFeedTable.tableHeaderView = headerView
+            
+            getTrendingMovies()
         }
         
         // Navigation bar özelleştirmesi
@@ -67,6 +69,21 @@
             super.viewDidLayoutSubviews()
             // homeFeedTable'ı ana görünümün boyutlarına ayarlama
             homeFeedTable.frame = view.bounds
+        }
+        
+        
+        private func getTrendingMovies() {
+            
+            APICaller.shared.getTrendingMovies { results in
+                switch results {
+                    
+                    
+                case .success(let movies):
+                    print(movies)
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
     }
 
@@ -121,7 +138,7 @@
             header.textLabel?.textColor = .white
             
             // Başlığı küçük harfe çeviriyoruz
-            header.textLabel?.text = header.textLabel?.text?.lowercased()
+            header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
         }
 
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
