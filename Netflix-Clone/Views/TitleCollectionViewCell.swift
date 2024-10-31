@@ -12,7 +12,6 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TitleCollectionViewCell"
     
-    
     // Film afişlerini göstermek için kullanılan UIImageView nesnesi
     private let posterImageView: UIImageView = {
        
@@ -28,10 +27,9 @@ class TitleCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError()
+        fatalError() // Storyboard kullanılmadığı için hata oluşturur
     }
     
-    // Alt görünümleri düzenleyen fonksiyon
     override func layoutSubviews() {
         super.layoutSubviews()
         posterImageView.frame = contentView.bounds // Afiş görüntüsünün hücre sınırlarına yayılması

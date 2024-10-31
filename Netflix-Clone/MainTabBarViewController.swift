@@ -18,8 +18,8 @@ class MainTabBarViewController: UITabBarController {
         
         // Ana görünüm denetleyicileri oluştur
         let vc1 = UINavigationController(rootViewController: HomeViewController())
-        let vc2 = UINavigationController(rootViewController: SearchViewController())
-        let vc3 = UINavigationController(rootViewController: UpComingViewController())
+        let vc2 = UINavigationController(rootViewController: UpComingViewController())
+        let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: DownloadsViewController())
         
         
@@ -32,7 +32,7 @@ class MainTabBarViewController: UITabBarController {
         
         // Tab bar öğeleri için başlıkları ayarla
         vc1.title = "Home"
-        vc2.title = "Coming Soon"
+        vc2.title = "Upcoming"
         vc3.title = "Top Search"
         vc4.title = "Downloads"
         
