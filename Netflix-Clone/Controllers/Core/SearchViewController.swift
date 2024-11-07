@@ -18,6 +18,14 @@ class SearchViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
+    
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Search for a movies or Tv shows"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+        
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +40,9 @@ class SearchViewController: UIViewController {
         discoverTable.delegate = self
         discoverTable.dataSource = self
         
+        navigationItem.searchController = searchController
+        
+        navigationController?.navigationBar.tintColor = .white
         fetchDiscoverMovies()
     }
     
