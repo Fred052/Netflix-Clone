@@ -53,6 +53,8 @@ enum Sections: Int {
             // HeroHeaderUIView ekleyerek tableView için başlık görünümü ayarlama
             let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
             homeFeedTable.tableHeaderView = headerView
+           
+            
             
         }
         
