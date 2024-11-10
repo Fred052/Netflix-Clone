@@ -53,8 +53,6 @@ enum Sections: Int {
             // HeroHeaderUIView ekleyerek tableView için başlık görünümü ayarlama
             let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
             homeFeedTable.tableHeaderView = headerView
-           
-            
             
         }
         
@@ -103,6 +101,8 @@ enum Sections: Int {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
                 return UITableViewCell()
             }
+            
+            cell.delegate = self
             
             // APICaller üzerinden  verilerin çağırılmasi
             switch indexPath.section {
@@ -216,3 +216,15 @@ enum Sections: Int {
         }
         
     }
+
+
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func CollectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+        vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
